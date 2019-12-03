@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+<!--         <Property name="basePath">E:\logs</Property> -->
+		<!-- E:\Work\Domains\oracle12c\SwimDev\logs -->
+        <Property name="basePath">./logs</Property>
+        <Property name="rollingFileName">PUBLIGRANT</Property>
+		<Property name="rollingFileTestName">PUBLIGRANT_Tests</Property>
+    </Properties>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} | %-5p | %mdc{scuuid} | %mdc{httpMethod} | %mdc{url} | %mdc{queryString} | %C{1}.%M:%L | %m%n" />
+        </Console>
+        <RollingFile name="rollingFile" fileName="${basePath}/${rollingFileName}.log" filePattern="${basePath}/${rollingFileName}_%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} | %-5p | %mdc{scuuid} | %mdc{httpMethod} | %mdc{url} | %mdc{queryString} | %C{1}.%M:%L | %m%n" />
+            <Policies>
+                <!-- Causes a rollover if the log file  has reached the specified size. -->
+                <SizeBasedTriggeringPolicy size="5 MB" />
+            </Policies>
+        </RollingFile>
+        <!-- Appender dedicted to Test log -->
+        <RollingFile name="testAppender" fileName="${basePath}/${rollingFileTestName}.log" filePattern="${basePath}/${rollingFileName}_%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} | %-5p | %mdc{scuuid} |%mdc{httpMethod} | %mdc{url} | %mdc{queryString} | %C{1}.%M:%L | %m%n" />
+            <Policies>
+                <!-- Causes a rollover if the log file  has reached the specified size. -->
+                <SizeBasedTriggeringPolicy size="5 MB" />
+            </Policies>
+        </RollingFile>
+        
+    </Appenders>
+    <Loggers>
+		<Root level="INFO">
+			<AppenderRef ref="console"/>
+			<AppenderRef ref="rollingFile"/>
+		</Root >
+
+		<logger name="test" level="DEBUG">
+			<AppenderRef ref="testAppender"/>
+		</logger>
+    </Loggers>
+</Configuration>

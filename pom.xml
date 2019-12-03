@@ -1,0 +1,300 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>CucumberTest</groupId>
+  <artifactId>CucumberTest</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- <jersey.version>2.6</jersey.version> -->
+		<springframework.version>4.3.9.RELEASE</springframework.version>
+		<!-- 
+		<jackson.library>2.7.5</jackson.library>
+		 -->
+		<jackson.library>2.8.7</jackson.library>
+		<eclipselink>2.6.5</eclipselink>
+		<jpa>2.0.0</jpa>
+		<httpclient.version>4.3.3</httpclient.version>
+		<httpcore.version>4.3.3</httpcore.version>
+		<mockito.version>2.21.0</mockito.version>
+        <easymock.version>3.5.1</easymock.version>
+        <jmockit.version>1.41</jmockit.version>
+        <!-- Stop eclipse updating the domain with the snapshot version  -->
+		<m2eclipse.wtp.contextRoot>dms</m2eclipse.wtp.contextRoot>
+	</properties>
+    
+ <dependencies>
+ 
+<!-- ************** TESTING ************************************************************** -->
+<!-- General Purpose Unit Testing                                                          -->
+<!-- **************************************************************************************-->
+		
+<!-- Launching test -->
+		
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>4.12</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-test</artifactId>
+		    <version>${springframework.version}</version>
+		    <scope>test</scope>
+		</dependency>
+
+
+<!-- ************** ASSERT ************************************************************** -->
+<!-- General Purpose Unit Testing                                                          -->
+<!-- **************************************************************************************-->
+  
+<!-- General Purpose -->
+<!--  https://www.baeldung.com/java-junit-hamcrest-guide  -->		
+		
+		<!--
+		<dependency>
+    		<groupId>org.hamcrest</groupId>
+    		<artifactId>hamcrest-library</artifactId>
+    		<version>1.3</version>
+    		<scope>test</scope>
+		</dependency>
+		-->
+		
+		
+<!-- Rest services - JSON -->
+
+		<dependency>
+    		<groupId>com.jayway.jsonpath</groupId>
+    		<artifactId>json-path</artifactId>
+    		<version>2.2.0</version>
+    		<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.jayway.restassured</groupId>
+		    <artifactId>rest-assured</artifactId>
+		    <version>2.9.0</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		<!-- Json test -->
+		
+		<dependency>
+		    <groupId>org.skyscreamer</groupId>
+		    <artifactId>jsonassert</artifactId>
+		    <version>1.5.0</version>
+		</dependency>
+  
+
+<!-- ************** REST SERVICE ********************************************************** -->  
+<!-- HTTP CLIENT -->
+<!-- **************************************************************************************-->
+		
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>${httpcore.version}</version>
+        </dependency>
+
+  <!--  Selenium and cucucmber -->
+  
+		  <dependency>
+		   <groupId>org.seleniumhq.selenium</groupId>
+		   <artifactId>selenium-java</artifactId>
+		   <version>3.7.0</version>
+		  </dependency>
+		  <dependency>
+		   <groupId>info.cukes</groupId>
+		   <artifactId>cucumber-java</artifactId>
+		   <version>1.0.2</version>
+		   <scope>test</scope>
+		  </dependency>
+		  <dependency>
+		   <groupId>info.cukes</groupId>
+		   <artifactId>cucumber-junit</artifactId>
+		   <version>1.0.2</version>
+		   <scope>test</scope>
+		  </dependency>
+		  <dependency>
+		   <groupId>junit</groupId>
+		   <artifactId>junit</artifactId>
+		   <version>4.10</version>
+		   <scope>test</scope>
+		  </dependency>
+  
+   <!--  Selenium and cucucmber -->
+   
+   <!-- ************** JSON - JACKSON ********************************************************************** -->
+   <!-- Alternatives ???? -->
+   <!-- ********************************************************************************************* -->
+
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${jackson.library}</version>
+			</dependency>
+		
+			<!-- <dependency> <groupId>com.fasterxml.jackson.core</groupId> <artifactId>jackson-databind</artifactId> 
+				<version>${jackson.library}</version> </dependency> -->
+		
+			<!-- JSON Library -->
+		
+			<dependency>
+			    <groupId>org.json</groupId>
+			    <artifactId>json</artifactId>
+			    <version>20160810</version>
+			</dependency>
+		
+	<!-- ************** MOCKUP *************************************************************************************** -->
+	<!-- -->
+	<!-- ************************************************************************************************************** -->
+		
+		   <dependency>
+	           <groupId>org.mockito</groupId>
+	           <artifactId>mockito-core</artifactId>
+	           <version>${mockito.version}</version>
+	           <scope>test</scope>
+	           <exclusions>
+			        <exclusion>
+			            <groupId>org.hamcrest</groupId>
+			            <artifactId>hamcrest-core</artifactId>
+			        </exclusion>
+	   			</exclusions>
+	       </dependency>
+	
+	       <dependency>
+	           <groupId>org.easymock</groupId>
+	           <artifactId>easymock</artifactId>
+	           <version>${easymock.version}</version>
+	           <scope>test</scope>
+	       </dependency>
+	
+	       <!--  Describe use -->
+	       
+	       <dependency>
+	           <groupId>org.jmockit</groupId>
+	           <artifactId>jmockit</artifactId>
+	           <version>${jmockit.version}</version>
+	           <scope>test</scope>
+	       </dependency>
+	       
+	       <!--  Create Fake objects -->
+	       
+	       <dependency>
+	    		<groupId>com.github.javafaker</groupId>
+	    		<artifactId>javafaker</artifactId>
+	    		<version>1.0.1</version>
+			</dependency>
+			
+		
+        
+        <!-- ************** LOGGING *************************************************************************************** -->
+		<!-- Pending to update Source: https://mvnrepository.com/artifact/org.apache.logging.log4j -->
+		<!-- ************************************************************************************************************** -->
+		
+			<dependency> 
+				<groupId>org.apache.logging.log4j</groupId> 
+				<artifactId>log4j-core</artifactId> 
+				<version>2.0.2</version> 
+			</dependency>
+		
+		
+		<!-- ************** UTILS ************************************************************** -->
+
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>2.6</version>
+			</dependency>
+			
+			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+			<!-- Imcompatibility issues between apache-commons-lang-2 and apache-commons-vs-3 -->
+			<!-- https://stackoverflow.com/questions/24158889/apache-commons-lang-2-vs-3 -->
+			<dependency>
+			    <groupId>org.apache.commons</groupId>
+			    <artifactId>commons-lang3</artifactId>
+			    <version>3.4</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.16.16</version>
+				<scope>provided</scope>
+			</dependency>
+			
+		<!-- ************** PERSISTENCE - JPA - ECLIPSELINK ************************************************************** -->
+		<!-- Source: https://mvnrepository.com/artifact/org.eclipse.persistence/javax.persistence -->
+		<!-- ************************************************************************************************************** -->
+
+			<dependency>
+				<groupId>org.eclipse.persistence</groupId>
+				<artifactId>eclipselink</artifactId>
+				<version>${eclipselink}</version>
+			</dependency>
+	
+			<dependency>
+				<groupId>javax.persistence</groupId>
+				<artifactId>javax.persistence-api</artifactId>
+				<version>2.2</version>
+			</dependency>
+		
+		<!-- ************** Validation *************************************************************************************** -->
+		<!-- JSR 380 specification -->
+		<!-- ***************************************************************************************************************** -->
+		
+			<dependency>
+			    <groupId>javax.validation</groupId>
+			    <artifactId>validation-api</artifactId>
+			    <version>2.0.0.Final</version>
+			</dependency>
+			
+		<!-- ************** Template *************************************************************************************** -->
+		<!-- REST Template -->
+		<!-- ***************************************************************************************************************** -->
+
+			<dependency>
+			    <groupId>org.springframework</groupId>
+			    <artifactId>spring-web</artifactId>
+			    <version>${springframework.version}</version>
+			</dependency>
+			
+			<dependency>
+			    <groupId>org.modelmapper</groupId>
+			    <artifactId>modelmapper</artifactId>
+			    <version>2.3.2</version>
+			</dependency>
+		
+		<!-- ************** Template ***************************************************************************************-->
+		<!-- Database connection without Application server                                                                 -->
+		<!-- ***************************************************************************************************************-->
+		
+			<dependency>
+				<groupId>commons-dbcp</groupId>
+				<artifactId>commons-dbcp</artifactId>
+				<version>1.2.2</version>
+				<scope>test</scope>
+			</dependency>
+		
+		<!-- ************** Test Rest Service without Application server  **************************************************-->
+		<!-- Test Rest without Application server                                                                           -->
+		<!-- ***************************************************************************************************************-->
+  
+</dependencies>
+  		
+  
+</project>
