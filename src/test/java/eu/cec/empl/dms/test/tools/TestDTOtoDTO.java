@@ -32,7 +32,7 @@ public class TestDTOtoDTO {
     	assertEquals(publicationDTO.getGrantAgreementDTO().getInitialTotalCost(), generalInfoDTO.getGrantAgreementDTO().getInitialTotalCost());
     	assertEquals(publicationDTO.getGrantAgreementDTO().getFinalTotalCost(), generalInfoDTO.getGrantAgreementDTO().getFinalTotalCost());
     	
-        
+            
     }
 
 
