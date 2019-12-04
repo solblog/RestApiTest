@@ -11,7 +11,7 @@
 		<!-- 
 		<jackson.library>2.7.5</jackson.library>
 		 -->
-		<jackson.library>2.8.7</jackson.library>
+		<jackson.library>2.9.10.1</jackson.library>
 		<eclipselink>2.6.5</eclipselink>
 		<jpa>2.0.0</jpa>
 		<httpclient.version>4.3.3</httpclient.version>
