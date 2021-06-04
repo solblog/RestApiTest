@@ -14,7 +14,7 @@
 		<jackson.library>2.8.7</jackson.library>
 		<eclipselink>2.6.5</eclipselink>
 		<jpa>2.0.0</jpa>
-		<httpclient.version>4.3.3</httpclient.version>
+		<httpclient.version>4.5.13</httpclient.version>
 		<httpcore.version>4.3.3</httpcore.version>
 		<mockito.version>2.21.0</mockito.version>
         <easymock.version>3.5.1</easymock.version>
